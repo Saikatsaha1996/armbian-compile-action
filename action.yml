@@ -101,11 +101,11 @@ runs:
         wget https://github.com/amazingfate/armbian-compile-action/raw/main/liujianfeng1994.gpg -O config/desktop/jammy/appgroups/panfork-mesa/sources/apt/panfork-mesa.gpg
         wget https://github.com/amazingfate/armbian-compile-action/raw/main/panfork-mesa.source -O config/desktop/jammy/appgroups/panfork-mesa/sources/apt/panfork-mesa.source
         wget https://github.com/amazingfate/armbian-compile-action/raw/main/panfork-mesa.packages -O config/desktop/jammy/appgroups/panfork-mesa/packages
-        git clone --depth 1 https://github.com/amazingfate/armbian-xiaomi-elish.git ../armbian-xiaomi-elish
-        cp ../armbian-xiaomi-elish/linux-arm64-sm8250.config config/kernel/
-        cp ../armbian-xiaomi-elish/xiaomi-elish.conf config/boards/
+        git clone --depth 1 https://github.com/Saikatsaha1996/armbian-xiaomi-elish.git ../armbian-xiaomi-elish
+        cp ../armbian-xiaomi-elish/linux-arm64-sm8350.config config/kernel/
+        cp ../armbian-xiaomi-elish/realme-porsche.conf config/boards/
         cp ../armbian-xiaomi-elish/qcom-abl.conf config/sources/families/
-        cp -r ../armbian-xiaomi-elish/bsp_xiaomi-elish packages/bsp/xiaomi-elish
+        cp -r ../armbian-xiaomi-elish/bsp_realme-porsche packages/bsp/realme-porsche
         git status
         docker pull ghcr.io/armbian/docker-armbian-build:armbian-ubuntu-jammy-latest
         if [ ${{ inputs.flavor }} == "cli" ];then
@@ -121,7 +121,7 @@ runs:
             SHARE_LOG=yes \
             DEBUG=yes \
             COMPRESS_OUTPUTIMAGE=sha,gpg,xz
-        elif [ ${{ inputs.board }} == "xiaomi-elish" ];then
+        elif [ ${{ inputs.board }} == "realme-porsche" ];then
             ./compile.sh \
             BOARD=${{ inputs.board }} \
             BRANCH=${{ inputs.branch }} \
